@@ -101,24 +101,25 @@
 		.main-content {
 			max-width: 764px;
 			width: 100%;
-			padding: 0 0 1rem 0;
+		}
+
+		.page-quote {
+			font-family: "Pixelify Sans", sans-serif;
+			font-size: 2rem;
+			font-style: normal;
+			font-weight: 400;
+			white-space: nowrap;
+		}
+
+		.page-quote-separator {
+			font-size: 2rem;
+			padding: 0 1rem;
 		}
 
 		.picture-w-socials {
 			display: flex;
 			flex-direction: row;
 
-		}
-
-		.section-link {
-			font-family: "Pixelify Sans", sans-serif;
-			font-size: 1rem;
-			font-style: normal;
-			font-weight: 400;
-			white-space: nowrap;
-			color: var(--accent-color);
-			text-decoration: underline;
-			cursor: pointer;
 		}
 
 		.section-title {
@@ -133,8 +134,38 @@
 		.sections {
 			padding-top: 1rem;
 			display: grid;
-			grid-template-columns: auto 1fr;
-			gap: 1rem;
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.resume-entry+.resume-entry {
+			margin-top: 2rem;
+		}
+
+		.resume-company {
+			font-family: "Fredericka the Great", serif;
+			font-size: 2rem;
+			font-weight: 400;
+		}
+
+		.resume-role {
+			font-family: "Pixelify Sans", sans-serif;
+			font-size: 1.25rem;
+			text-transform: uppercase;
+			letter-spacing: 0.1rem;
+		}
+
+		.resume-meta {
+			font-family: "VT323", monospace;
+			font-size: 1.125rem;
+			color: #444;
+		}
+
+		.resume-description {
+			margin-top: 0.75rem;
+			font-family: "Pixelify Sans", sans-serif;
+			font-size: 1rem;
+			line-height: 1.6;
 		}
 
 		.sam-face {
@@ -148,6 +179,15 @@
 			font-weight: 400;
 			font-style: normal;
 			font-size: 5rem;
+		}
+
+		.section-link {
+			font-family: "Fredericka the Great", sans-serif;
+			font-size: 2rem;
+			font-style: normal;
+			font-weight: 400;
+			white-space: nowrap;
+			color: var(--accent-color);
 		}
 
 		.social {
@@ -211,6 +251,19 @@
 			.sections {
 				grid-template-columns: 1fr;
 			}
+
+			.section-title {
+				text-align: center;
+				padding: 0;
+			}
+
+			.resume-entry+.resume-entry {
+				margin-top: 1.5rem;
+			}
+
+			.resume-meta {
+				font-size: 1rem;
+			}
 		}
 
 		@media (prefers-color-scheme: dark) {
@@ -221,6 +274,10 @@
 
 			.code-block {
 				background-color: #666666;
+			}
+
+			.resume-meta {
+				color: #BBB;
 			}
 
 			.x-logo {
@@ -276,7 +333,7 @@
 						<g>
 							<g id="Layer_1-2">
 								<path class="st1" d="M500,0L0,500v1800h600v500l500-500h400l900-900V0H500z M2200,1300l-400,400h-400l-350,350v-350H600V200h1600
-				V1300z" />
+						V1300z" />
 								<rect x="1700" y="550" class="st1" width="200"
 									height="600" />
 								<rect x="1150" y="550" class="st1" width="200"
@@ -337,45 +394,64 @@
 				</div>
 			</div>
 			<div class="sections">
-				<div class="section-title">
-					My Resume
+				<div class="page-quote-container">
+					<a class="section-link" href="index.html">Home</a>
+					<span class="page-quote-separator">&gt;</span>
+					<span class="page-quote">"Yeah, I worked on stuff."</span>
 				</div>
 				<div class="section-blurb">
-					My career has taken me across many industries always in pursuit of the next
-					adventure. I don't just want to tell people's stories, I want to understand them
-					and make them clear to other people too! To accomplish this task, I've worked
-					many places and met many people. I could tell you stories about every one of
-					these places, and who knows? Maybe one day I will.
-					<br />
-					<br />
-					<a class="section-link" href="resume.html">View my resume</a>
-				</div>
-				<div class="section-title">
-					My Projects
-				</div>
-				<div class="section-blurb">
-					I work on a lot of weird stuff. It isn't all tech-related though a lot of
-					it is. I like to explore the world around me any chance I get, so sometimes
-					I'm building barely useful apps and sometimes and gardening and other
-					times I'm trying to figure out how electricity works. I'm still exploring
-					the best ways to document my non-tech stuff, so this is a sort of
-					collection point.
-					<br />
-					<br />
-					<a class="section-link" href="projects.html">View my projects</a>
-				</div>
-				<div class="section-title">
-					My Cooking
-				</div>
-				<div class="section-blurb">
-					I am not a professional chef, but I do really like to grill and smoke meat.
-					Basically, I like to post pictures that make people hungry and bring people
-					together in their desire to eat. I've been smoking meat as a hobby for about
-					five years and I regularly use my Traeger pellet grill, but I also enjoy smoking
-					directly on my weber kettle grill with my typical lifehack style.
-					<br />
-					<br />
-					[Link coming soon]
+					<div class="resume-entry">
+						<div class="resume-company">Beyond Identity</div>
+						<div class="resume-role">Sr. Software Engineer</div>
+						<div class="resume-meta">March 2022 - Present • Remote, NY</div>
+						<p class="resume-description">
+							Front-end developer specializing in React and NextJS. Working on
+							web-based admin portals for secure workforce and secure customer
+							product lines. Occassionally working on Go and Rust services as
+							needed.
+						</p>
+					</div>
+					<div class="resume-entry">
+						<div class="resume-company">Comcast, Inc</div>
+						<div class="resume-role">Sr. Software Engineer</div>
+						<div class="resume-meta">June 2016 - March 2022 • Denver, CO</div>
+						<p class="resume-description">
+							Full-stack Angular/NodeJS developer who brought multiple Java
+							"microservices" together into a dynamic, web-based, advertising
+							portal. The only UI developer on a team of nine.
+						</p>
+					</div>
+					<div class="resume-entry">
+						<div class="resume-company">Levels Beyond</div>
+						<div class="resume-role">Software Engineer</div>
+						<div class="resume-meta">July 2015 - June 2016 • Denver, CO</div>
+						<p class="resume-description">
+							Full-stack AngularJS/NodeJS developer who worked with a team of
+							UI developers to ingest and utilize two main Java backend
+							services.
+						</p>
+					</div>
+					<div class="resume-entry">
+						<div class="resume-company">ClickFox</div>
+						<div class="resume-role">Software Engineer</div>
+						<div class="resume-meta">March 2014 - July 2015 • Denver, CO</div>
+						<p class="resume-description">
+							AngularJS developer who worked to convert an Apache Flex app
+							into HTML5/JS while also building new features. Managed an
+							off-shore team in India of UI developers as well.
+						</p>
+					</div>
+					<div class="resume-entry">
+						<div class="resume-company">ClickFox</div>
+						<div class="resume-role">Associate QA Engineer</div>
+						<div class="resume-meta">October 2013 - March 2014 • Denver, CO</div>
+						<p class="resume-description">
+							Worked alongside a team of QA Engineers to leverage automated
+							testing frameworks, such as SOAPUI and Selenium to test the
+							existing Apache Flex UI, as well as handling manual testing as
+							needed.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -386,6 +462,15 @@
 			var aboutSection = document.getElementById("about_me");
 			aboutSection.classList.toggle("collapsed");
 			aboutSection.classList.toggle("expanded");
+			/*
+				if (aboutSection.className === "closed") {
+					aboutSection.classList.remove("closed");
+					aboutSection.classList.add("open");
+				} else {
+					aboutSection.classList.remove("open");
+					aboutSection.classList.add("closed");
+				}
+			*/
 		}
 	</script>
 </body>
