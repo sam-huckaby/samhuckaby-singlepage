@@ -31,6 +31,13 @@
 			margin: 0;
 			background-color: #EEEFEF;
 			font-size: 16px;
+
+			/* Paper background */
+			background-color: #FAFAFA;
+			background-image:
+				linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+				linear-gradient(#eee .1em, transparent .1em);
+			background-size: 100% 1.69em;
 		}
 
 		body {
@@ -155,21 +162,52 @@
 			font-size: 5rem;
 		}
 
-		.social {
-			transition: all 750ms ease-in-out 100ms;
-		}
-
-		.social:hover {
-			rotate: 5deg;
-			transform: scale(2);
-		}
-
 		.stacked-socials {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
 			align-items: center;
-			padding: 0 0.5rem;
+			padding: 0 0.5rem 0.5rem 0.5rem;
+		}
+
+		.stacked-socials a {
+			background-color: #FEFEFE;
+			border: 1px solid #696969;
+			border-radius: calc(var(--spacing-unit) * 1px);
+			padding: calc(var(--spacing-unit) * 1px);
+			height: calc(var(--spacing-unit) * 4px);
+			width: calc(var(--spacing-unit) * 4px);
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			box-shadow: 3px 3px 10px #333333;
+		}
+
+		@keyframes wiggle {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			80% {
+				transform: rotate(0deg);
+			}
+
+			85% {
+				transform: rotate(5deg);
+			}
+
+			95% {
+				transform: rotate(-5deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.stacked-socials a:hover {
+			animation: wiggle 2.5s infinite;
 		}
 
 		.subheader-text {
