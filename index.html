@@ -29,7 +29,6 @@
 		html {
 			padding: 0;
 			margin: 0;
-			background-color: #EEEFEF;
 			font-size: 16px;
 
 			/* Paper background */
@@ -38,6 +37,28 @@
 				linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
 				linear-gradient(#eee .1em, transparent .1em);
 			background-size: 100% 1.69em;
+		}
+
+		@media (max-width: 768px) {
+			html {
+				/* Paper background */
+				background-color: #FAFAFA;
+				background-image: linear-gradient(90deg, transparent 18px, #abced4 18px, #abced4 20px, transparent 20px),
+					linear-gradient(#eee .1em, transparent .1em);
+				background-size: 100% 1.69em;
+			}
+		}
+
+		@media (prefers-color-scheme: dark) {
+			html {
+				color: #EEEFEF;
+				/* Paper background */
+				background-color: #222121;
+				background-image:
+					linear-gradient(90deg, transparent 79px, var(--accent-color) 79px, #123450 81px, transparent 81px),
+					linear-gradient(#333 .1em, transparent .1em);
+				background-size: 100% 1.69em;
+			}
 		}
 
 		body {
@@ -72,19 +93,6 @@
 			padding-right: 1rem;
 		}
 
-		.construction-banner {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 40px;
-			background-color: goldenrod;
-			color: black;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-
 		.expanded {
 			max-height: 5000px;
 			overflow: hidden;
@@ -115,10 +123,87 @@
 			padding: 0 0 1rem 0;
 		}
 
+		.page-link {
+			font-family: "Fredericka the Great", sans-serif;
+			font-size: 2rem;
+			font-style: normal;
+			font-weight: 400;
+			white-space: nowrap;
+			color: #000000;
+			text-decoration: underline;
+			text-decoration-color: var(--accent-color);
+			cursor: pointer;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			.page-link {
+				color: #EEEFEF;
+			}
+		}
+
+		.page-quote {
+			font-family: "Pixelify Sans", sans-serif;
+			font-size: 2rem;
+			font-style: normal;
+			font-weight: 400;
+		}
+
+		.page-quote-container {
+			padding-top: 1rem;
+		}
+
+		.page-quote-separator {
+			font-size: 2rem;
+			padding: 0 1rem;
+		}
+
 		.picture-w-socials {
 			display: flex;
 			flex-direction: row;
 
+		}
+
+		.resume-entry+.resume-entry {
+			margin-top: 2rem;
+		}
+
+		.resume-company {
+			font-family: "Fredericka the Great", serif;
+			font-size: 2rem;
+			font-weight: 400;
+		}
+
+		.resume-role {
+			font-family: "Pixelify Sans", sans-serif;
+			font-size: 1.25rem;
+			text-transform: uppercase;
+			letter-spacing: 0.1rem;
+		}
+
+		.resume-meta {
+			font-family: "VT323", monospace;
+			font-size: 1.125rem;
+			color: #444;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			.resume-meta {
+				color: var(--accent-color);
+			}
+		}
+
+		.resume-description {
+			margin-top: 0.75rem;
+			font-family: "Pixelify Sans", sans-serif;
+			font-size: 1rem;
+			line-height: 1.6;
+		}
+
+		.resume-sections {
+			padding-top: 1rem;
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
 		}
 
 		.section-link {
@@ -131,6 +216,12 @@
 			text-decoration: underline;
 			text-decoration-color: var(--accent-color);
 			cursor: pointer;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			.section-link {
+				color: #EEEFEF;
+			}
 		}
 
 		.section-title {
@@ -171,6 +262,7 @@
 		}
 
 		.stacked-socials a {
+			transition: all 200ms ease-in-out 200ms;
 			background-color: #FEFEFE;
 			border: 1px solid #696969;
 			border-radius: calc(var(--spacing-unit) * 1px);
@@ -182,6 +274,14 @@
 			justify-content: center;
 			align-items: center;
 			box-shadow: 3px 3px 10px #333333;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			.stacked-socials a {
+				background-color: #222121;
+				box-shadow: none;
+				border-color: var(--accent-color);
+			}
 		}
 
 		@keyframes wiggle {
@@ -208,6 +308,7 @@
 
 		.stacked-socials a:hover {
 			animation: wiggle 2.5s infinite;
+			box-shadow: 1px 1px 5px #333333;
 		}
 
 		.subheader-text {
@@ -237,6 +338,101 @@
 			filter: invert(0);
 		}
 
+		.projects-list {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+			padding: 1rem 0;
+		}
+
+		.project-card {
+			background-color: #DDDDDD;
+			border: 1px solid #BBBBBB;
+			border-radius: 0.5rem;
+			padding: 1.25rem;
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+
+		.project-header {
+			display: flex;
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+
+		.project-name {
+			font-family: "Fredericka the Great", serif;
+			font-size: 2rem;
+			font-weight: 400;
+			margin: 0;
+		}
+
+		.project-name a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		.project-name a:hover,
+		.project-name a:focus {
+			text-decoration: underline;
+			text-decoration-color: var(--accent-color);
+			color: #000000;
+		}
+
+		.project-description {
+			margin: 0;
+			line-height: 1.5;
+		}
+
+		.project-meta {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.meta-label {
+			font-family: "Pixelify Sans", sans-serif;
+			text-transform: uppercase;
+			font-size: 0.85rem;
+			letter-spacing: 0.08em;
+			color: #444;
+		}
+
+		.project-tech-list,
+		.project-repo-list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+
+		.project-tech-list li,
+		.project-repo-list li {
+			background-color: rgba(0, 0, 0, 0.05);
+			border-radius: 999px;
+			padding: 0.25rem 0.75rem;
+		}
+
+		.project-tech-list a,
+		.project-repo-list a {
+			font-family: "Pixelify Sans", sans-serif;
+			font-size: 0.9rem;
+			color: inherit;
+			text-decoration: none;
+		}
+
+		.project-tech-list a:hover,
+		.project-repo-list a:hover,
+		.project-tech-list a:focus,
+		.project-repo-list a:focus {
+			text-decoration: underline;
+			text-decoration-color: var(--accent-color);
+			color: #000000;
+		}
+
 		@media (max-width: 768px) {
 			.top-content {
 				flex-direction: column;
@@ -257,11 +453,6 @@
 		}
 
 		@media (prefers-color-scheme: dark) {
-			html {
-				background: #222121;
-				color: #EEEFEF;
-			}
-
 			.code-block {
 				background-color: #666666;
 			}
@@ -273,13 +464,21 @@
 			.podcast-logo {
 				filter: invert(1);
 			}
+
+			.project-card {
+				background-color: #333333;
+				border-color: #555555;
+			}
+
+			.project-tech-list li,
+			.project-repo-list li {
+				background-color: rgba(255, 255, 255, 0.1);
+			}
 		}
 	</style>
 </head>
 
 <body>
-	<div class="construction-banner">This site is under construction. Thank you for your attention to this matter.
-	</div>
 	<div class="main-content">
 		<div class="top-content">
 			<div class="picture-w-socials">
@@ -355,6 +554,7 @@
 			</a>
 		</div>
 		<div class="body-content">
+			<!-- This about me block will appear on every "page" -->
 			<div class="code-block">
 				<span class="expand-anchor" onclick="toggleAbout()">About Me<span
 						id="about_me_expander">+</span></span>
@@ -381,57 +581,364 @@
 					say "hi", I would love to get to know you.
 				</div>
 			</div>
-			<div class="sections">
-				<div class="section-title">
-					My Resume
-				</div>
-				<div class="section-blurb">
-					My career has taken me across many industries always in pursuit of the next
-					adventure. I don't just want to tell people's stories, I want to understand them
-					and make them clear to other people too! To accomplish this task, I've worked
-					many places and met many people. I could tell you stories about every one of
-					these places, and who knows? Maybe one day I will.
-					<br />
-					<br />
-					<a class="section-link" href="resume.html">View my resume</a>
-				</div>
-				<div class="section-title">
-					My Projects
-				</div>
-				<div class="section-blurb">
-					I work on a lot of weird stuff. It isn't all tech-related though a lot of
-					it is. I like to explore the world around me any chance I get, so sometimes
-					I'm building barely useful apps and sometimes and gardening and other
-					times I'm trying to figure out how electricity works. I'm still exploring
-					the best ways to document my non-tech stuff, so this is a sort of
-					collection point.
-					<br />
-					<br />
-					<a class="section-link" href="projects.html">View my projects</a>
-				</div>
-				<div class="section-title">
-					My Cooking
-				</div>
-				<div class="section-blurb">
-					I am not a professional chef, but I do really like to grill and smoke meat.
-					Basically, I like to post pictures that make people hungry and bring people
-					together in their desire to eat. I've been smoking meat as a hobby for about
-					five years and I regularly use my Traeger pellet grill, but I also enjoy smoking
-					directly on my weber kettle grill with my typical lifehack style.
-					<br />
-					<br />
-					[Link coming soon]
-				</div>
-			</div>
+			<!-- This is where all of the changing content will be injected -->
+			<main id="app-root"></main>
 		</div>
 	</div>
 
+	<!-- =================================== TEMPLATES =================================== -->
+	<template id="template-home">
+		<div class="sections">
+			<div class="section-title">
+				My Resume
+			</div>
+			<div class="section-blurb">
+				My career has taken me across many industries always in pursuit of the next
+				adventure. I don't just want to tell people's stories, I want to understand them
+				and make them clear to other people too! To accomplish this task, I've worked
+				many places and met many people. I could tell you stories about every one of
+				these places, and who knows? Maybe one day I will.
+				<br />
+				<br />
+				<a class="section-link" onClick="renderResume()">View my resume</a>
+			</div>
+			<div class="section-title">
+				My Projects
+			</div>
+			<div class="section-blurb">
+				I work on a lot of weird stuff. It isn't all tech-related though a lot of
+				it is. I like to explore the world around me any chance I get, so sometimes
+				I'm building barely useful apps and sometimes and gardening and other
+				times I'm trying to figure out how electricity works. I'm still exploring
+				the best ways to document my non-tech stuff, so this is a sort of
+				collection point.
+				<br />
+				<br />
+				<a class="section-link" onClick="renderProjects()">View my projects</a>
+			</div>
+			<div class="section-title">
+				My Cooking
+			</div>
+			<div class="section-blurb">
+				I am not a professional chef, but I do really like to grill and smoke meat.
+				Basically, I like to post pictures that make people hungry and bring people
+				together in their desire to eat. I've been smoking meat as a hobby for about
+				five years and I regularly use my Traeger pellet grill, but I also enjoy smoking
+				directly on my weber kettle grill with my typical lifehack style.
+				<br />
+				<br />
+				[Link coming soon]
+			</div>
+		</div>
+	</template>
+	<template id="template-resume">
+		<div class="resume-sections">
+			<div class="page-quote-container">
+				<a class="page-link" onclick="renderHome()">Home</a>
+				<span class="page-quote-separator">&gt;</span>
+				<span class="page-quote">"I work for a living"</span>
+			</div>
+			<div class="section-blurb">
+				<div class="resume-entry">
+					<div class="resume-company">Beyond Identity</div>
+					<div class="resume-role">Sr. Software Engineer</div>
+					<div class="resume-meta">March 2022 - Present • Remote, NY</div>
+					<p class="resume-description">
+						Front-end developer specializing in React and NextJS. Working on
+						web-based admin portals for secure workforce and secure customer
+						product lines. Occasionally working on Go and Rust services as
+						needed.
+					</p>
+				</div>
+				<div class="resume-entry">
+					<div class="resume-company">Comcast, Inc</div>
+					<div class="resume-role">Sr. Software Engineer</div>
+					<div class="resume-meta">June 2016 - March 2022 • Denver, CO</div>
+					<p class="resume-description">
+						Full-stack Angular/NodeJS developer who brought multiple Java
+						"microservices" together into a dynamic, web-based, advertising
+						portal. The only UI developer on a team of nine.
+					</p>
+				</div>
+				<div class="resume-entry">
+					<div class="resume-company">Levels Beyond</div>
+					<div class="resume-role">Software Engineer</div>
+					<div class="resume-meta">July 2015 - June 2016 • Denver, CO</div>
+					<p class="resume-description">
+						Full-stack AngularJS/NodeJS developer who worked with a team of
+						UI developers to ingest and utilize two main Java backend
+						services.
+					</p>
+				</div>
+				<div class="resume-entry">
+					<div class="resume-company">ClickFox</div>
+					<div class="resume-role">Software Engineer</div>
+					<div class="resume-meta">March 2014 - July 2015 • Denver, CO</div>
+					<p class="resume-description">
+						AngularJS developer who worked to convert an Apache Flex app
+						into HTML5/JS while also building new features. Managed an
+						off-shore team in India of UI developers as well.
+					</p>
+				</div>
+				<div class="resume-entry">
+					<div class="resume-company">ClickFox</div>
+					<div class="resume-role">Associate QA Engineer</div>
+					<div class="resume-meta">October 2013 - March 2014 • Denver, CO</div>
+					<p class="resume-description">
+						Worked alongside a team of QA Engineers to leverage automated
+						testing frameworks, such as SOAPUI and Selenium to test the
+						existing Apache Flex UI, as well as handling manual testing as
+						needed.
+					</p>
+				</div>
+			</div>
+		</div>
+	</template>
+	<template id="template-projects">
+		<div class="page-quote-container">
+			<a class="page-link" onclick="renderHome()">Home</a>
+			<span class="page-quote-separator">&gt;</span>
+			<span class="page-quote">"Junior developer on the inside"</span>
+		</div>
+		<div class="projects-list">
+			<div class="project-card">
+				<div class="project-header">
+					<h3 class="project-name">Moving my stack to self-hosted servers</h3>
+					<p class="project-description">[IN DEVELOPMENT] I really like building
+						small projects and admittedly they rarely have any users at all.
+						Spinning them up on my own droplet or vercel or forge works
+						really well too! The problem is that I use up free tiers pretty
+						quick, I want to commercialize things someday, and I have a hard
+						time keeping track of all the things I'm working on. Then one
+						day I realized I had a couple raspberry pis lying around and
+						thought to myself "I wonder if they could work as tiny servers?"
+						and the answer is "Yes!". I'm now beginning the process of
+						moving all of my side projects to raspberry pis that I host in
+						my house, starting with the site you are on right now. If one of
+						my apps ever takes off and becomes unmangeable on a home server,
+						I will move it to a larger host, but so far popularity does not
+						seem to be something I struggle with.
+					</p>
+				</div>
+				<div class="project-meta">
+					<div>
+						<div class="meta-label">Tech</div>
+						<ul class="project-tech-list">
+							<li><a href="https://www.raspberrypi.com/products/raspberry-pi-zero-w/"
+									target="_blank">Raspberry PI Zero W</a>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<div class="meta-label">Repos</div>
+						<ul class="project-repo-list">
+							<li><a href="https://github.com/sam-huckaby/samhuckaby-singlepage"
+									target="_blank">https://github.com/sam-huckaby/samhuckaby-singlepage</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="project-card">
+				<div class="project-header">
+					<h3 class="project-name"><a href="https://www.homethink.org/"
+							target="_blank">HomeThink</a></h3>
+					<p class="project-description">A place for parents and students to
+						partner together to learn and grow. I'm adding new exercises as
+						I hear about more student work in local schools. My goal is to
+						assist both public school and home school parents in their
+						journey to raise and educate our next generation.</p>
+				</div>
+				<div class="project-meta">
+					<div>
+						<div class="meta-label">Tech</div>
+						<ul class="project-tech-list">
+							<li><a href="https://nextjs.org/" target="_blank">NextJS</a>
+							</li>
+							<li><a href="https://tailwindcss.com/"
+									target="_blank">TailwindCSS</a></li>
+							<li><a href="https://vercel.com/" target="_blank">Vercel</a>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<div class="meta-label">Repos</div>
+						<ul class="project-repo-list">
+							<li><a href="https://github.com/sam-huckaby/kindergarten"
+									target="_blank">github.com/sam-huckaby/kindergarten</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="project-card">
+				<div class="project-header">
+					<h3 class="project-name"><a href="https://www.bitconquest.com/"
+							target="_blank">Bit Conquest</a></h3>
+					<p class="project-description">A place for developers to showcase all of
+						the awesome domains they have acquired!</p>
+				</div>
+				<div class="project-meta">
+					<div>
+						<div class="meta-label">Tech</div>
+						<ul class="project-tech-list">
+							<li><a href="https://nextjs.org/" target="_blank">NextJS</a>
+							</li>
+							<li><a href="https://tailwindcss.com/"
+									target="_blank">TailwindCSS</a></li>
+							<li><a href="https://vercel.com/" target="_blank">Vercel</a>
+							</li>
+							<li><a href="https://supabase.com/" target="_blank">Supabase</a>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<div class="meta-label">Repos</div>
+						<ul class="project-repo-list">
+							<li><a href="https://github.com/sam-huckaby/bitconquest"
+									target="_blank">github.com/sam-huckaby/bitconquest</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="project-card">
+				<div class="project-header">
+					<h3 class="project-name"><a href="https://whnvr.com/" target="_blank">WHNVR</a>
+					</h3>
+					<p class="project-description">The anti-social network, where people can
+						go to scream into the void. Messages live for 24 hours before
+						self-destructing. WHNVR leverages passkeys for a completely
+						secure and completely seamless login flow that makes it easy to
+						post and eliminates the fear of account takeover.</p>
+				</div>
+				<div class="project-meta">
+					<div>
+						<div class="meta-label">Tech</div>
+						<ul class="project-tech-list">
+							<li><a href="https://ocaml.org/" target="_blank">OCaml</a></li>
+							<li><a href="https://htmx.org/" target="_blank">Htmx</a>
+							</li>
+							<li><a href="https://aantron.github.io/dream/"
+									target="_blank">Dream</a></li>
+							<li><a href="https://beyondidentity.com/"
+									target="_blank">Passkeys</a></li>
+							<li><a href="https://supabase.com/" target="_blank">Supabase</a>
+							</li>
+							<li><a href="https://fly.io/" target="_blank">Fly.io</a>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<div class="meta-label">Repos</div>
+						<ul class="project-repo-list">
+							<li><a href="https://github.com/sam-huckaby/whnvr"
+									target="_blank">github.com/sam-huckaby/whnvr</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="project-card">
+				<div class="project-header">
+					<h3 class="project-name"><a href="https://youtube.com/@TheSamHuckaby"
+							target="_blank">Huckabytes</a></h3>
+					<p class="project-description">Byte-sized learning videos that cover
+						topics I'm currently interested in, relating to my job or indie
+						hacking projects.</p>
+				</div>
+				<div class="project-meta">
+					<div>
+						<div class="meta-label">Tech</div>
+						<ul class="project-tech-list">
+							<li><a href="https://www.shure.com/en-US/products/microphones/mv7?variant=MV7-K"
+									target="_blank">Shure MV7 Mic</a></li>
+						</ul>
+					</div>
+					<div>
+						<div class="meta-label">Repos</div>
+						<ul class="project-repo-list">
+							<li>No public repositories yet</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="project-card">
+				<div class="project-header">
+					<h3 class="project-name"><a href="https://fuelpm.com" target="_blank">Fuel PM
+							(Project Management)</a></h3>
+					<p class="project-description">[TEMPORARILY OFFLINE] Project management
+						should fuel your organization, not slow it down and annoy it.
+						Fuel is a mobile-first project management tool that is designed
+						to be used as little as possible.</p>
+				</div>
+				<div class="project-meta">
+					<div>
+						<div class="meta-label">Tech</div>
+						<ul class="project-tech-list">
+							<li><a href="https://nextjs.org/" target="_blank">NextJS</a>
+							</li>
+							<li><a href="https://tailwindcss.com/"
+									target="_blank">TailwindCSS</a></li>
+							<li><a href="https://vercel.com/" target="_blank">Vercel</a>
+							</li>
+							<li><a href="https://supabase.com/" target="_blank">Supabase</a>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<div class="meta-label">Repos</div>
+						<ul class="project-repo-list">
+							<li><a href="https://github.com/sam-huckaby/fuelpm.com"
+									target="_blank">github.com/sam-huckaby/fuelpm.com</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<!-- =================================== ENGINE =================================== -->
 	<script lang="javascript">
 		function toggleAbout() {
 			var aboutSection = document.getElementById("about_me");
 			aboutSection.classList.toggle("collapsed");
 			aboutSection.classList.toggle("expanded");
 		}
+
+		const appRoot = document.getElementById('app-root');
+
+		function renderHome() {
+			appRoot.innerHTML = '';
+			const template = document.getElementById('template-home');
+			const content = template.content.cloneNode(true);
+			appRoot.appendChild(content);
+		}
+
+		function renderResume() {
+			appRoot.innerHTML = '';
+			const template = document.getElementById('template-resume');
+			const content = template.content.cloneNode(true);
+			appRoot.appendChild(content);
+		}
+
+		function renderProjects() {
+			appRoot.innerHTML = '';
+			const template = document.getElementById('template-projects');
+			const content = template.content.cloneNode(true);
+			appRoot.appendChild(content);
+		}
+
+		/*
+		// Some exploratory work to add hotlinks later
+		const urlParams = new URLSearchParams(window.location.search);
+		const isResume = urlParams.has('resume');
+
+		console.log(isResume);
+		*/
+
+		renderHome();
 	</script>
 </body>
 
